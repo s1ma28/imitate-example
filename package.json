@@ -1,0 +1,23 @@
+{
+  "name": "imitate_example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "trace_clean-code-javascript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s1ma28/imitate_example.git"
+  },
+  "keywords": [],
+  "author": "s1ma28",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s1ma28/imitate_example/issues"
+  },
+  "homepage": "https://github.com/s1ma28/imitate_example#readme",
+  "dependencies": {
+    "moment": "^2.29.1"
+  }
+}
