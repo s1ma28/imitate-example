@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper" id="app">
-    <CardFrom
+    <CardForm
      :form-data="formData"
      @input-card-number="updateCardNumber"
      @input-card-name="updateCardName"
@@ -19,7 +19,7 @@ export default {
   components: {
     CardForm
   },
-  data (){
+  data () {
     return {
       formData: {
         cardName: '',
@@ -32,15 +32,15 @@ export default {
   },
 
   methods: {
-    updateCardNumber (val){
+    updateCardNumber (val) {
     },
-    updateCardName (val){
+    updateCardName (val) {
     },
-    updateCardMonth (val){
+    updateCardMonth (val) {
     },
-    updateCardYear (val){
+    updateCardYear (val) {
     },
-    updateCardCvv (val){
+    updateCardCvv (val) {
     }
   },
   mounted () {
@@ -52,5 +52,3 @@ export default {
 <style lang="scss">
 @import '../src/assets/style.scss'
 </style>
-
-

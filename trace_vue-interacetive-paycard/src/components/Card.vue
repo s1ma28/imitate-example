@@ -114,13 +114,12 @@
   </div>
 </template>
 
-
 <script>
 export default {
   name: 'Card',
   props: {
     labels: Object,
-    fields: Objects,
+    fields: Object,
     isCardNumberMasked: Boolean,
     randomBackgrounds: {
       type: Boolean,
@@ -142,9 +141,9 @@ export default {
   },
   watch: {
     currentFocus () {
-      if (this.currentFocus){
+      if (this.currentFocus) {
         this.changeFocus()
-      } else{
+      } else {
         this.focusElementStyle = null
       }
     },
@@ -180,7 +179,7 @@ export default {
   },
   computed: {
     cardType () {
-      let number = this.labels.isCardNumberMasked
+      let number = this.labels.cardNumber
       let re = new RegExp('^4')
       if (number.match(re) != null) return 'visa'
 
@@ -207,28 +206,27 @@ export default {
 
       return '' // default type
     },
-
-    currentCardBackground(){
+    currentCardBackground () {
       if (this.randomBackgrounds && !this.backgroundImage) { // TODO will be optimized
-        let sandom = Math.floor(Math.random() * 25 + 1)
-        return ``https://raw.githubusercontent.com/xxx/credit-card-form/master/src/assets/images/${random}.jpeg``
+        let random = Math.floor(Math.random() * 25 + 1)
+        return `https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/${random}.jpeg`
       } else if (this.backgroundImage) {
         return this.backgroundImage
-      } else{
+      } else {
         return null
       }
     }
   },
   methods: {
-    changeFocus() {
-      let target = this.$ref[this.currentFocus]
+    changeFocus () {
+      let target = this.$refs[this.currentFocus]
       this.focusElementStyle = target ? {
         width: `${target.offsetWidth}px`,
         height: `${target.offsetHeight}px`,
         transform: `translateX(${target.offsetLeft}px) translateY(${target.offsetTop}px)`
       } : null
     },
-    getIsNumberMasked (index, n){
+    getIsNumberMasked (index, n) {
       return index > 4 && index < 14 && this.labels.cardNumber.length > index && n.trim() !== '' && this.isCardNumberMasked
     },
     changePlaceholder () {
@@ -239,7 +237,7 @@ export default {
       } else {
         this.currentPlaceholder = this.defaultCardPlaceholder
       }
-      this.$nextTick( () => {
+      this.$nextTick(() => {
         this.changeFocus()
       })
     }
